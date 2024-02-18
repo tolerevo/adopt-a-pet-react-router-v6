@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { getPetDetails } from '../../api/petfinder';
-import Hero from '../../components/hero';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { getPetDetails } from "../../api/petfinder";
+import Hero from "../../components/hero";
+import { useParams, Navigate } from "react-router-dom";
 // Import useParams
 // Import Navigate
 
@@ -33,11 +33,12 @@ const PetDetailsPage = () => {
       ) : error ? (
         <div>
           {/* Redirect to /pet-details-not-found if there was an error! */}
+          <Navigate to="/pet-details-not-found" />
         </div>
       ) : (
         <main>
           <Hero
-            image={data.photos[1]?.full || 'https://i.imgur.com/aEcJUFK.png'}
+            image={data.photos[1]?.full || "https://i.imgur.com/aEcJUFK.png"}
             displayText={`Meet ${data.name}`}
           />
           <div className="pet-detail">
@@ -45,7 +46,7 @@ const PetDetailsPage = () => {
               <img
                 className="pet-image"
                 src={
-                  data.photos[0]?.medium || 'https://i.imgur.com/aEcJUFK.png'
+                  data.photos[0]?.medium || "https://i.imgur.com/aEcJUFK.png"
                 }
                 alt=""
               />
@@ -53,7 +54,7 @@ const PetDetailsPage = () => {
             <div>
               <h1>{data.name}</h1>
               <h3>Breed: {data.breeds.primary}</h3>
-              <p>Color: {data.colors.primary || 'Unknown'}</p>
+              <p>Color: {data.colors.primary || "Unknown"}</p>
               <p>Gender: {data.gender}</p>
               <h3>Description</h3>
               <p>{data.description}</p>

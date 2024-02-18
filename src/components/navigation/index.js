@@ -3,7 +3,7 @@ import { getPetTypes } from '../../api/petfinder';
 import Logo from '../../assets/logo.svg';
 import Search from '../search';
 
-// Import NavLink
+// Import NavLink continue with step 14 replacing a tags https://www.codecademy.com/courses/learn-react-router/projects/adopt-a-pet-react-router-v6
 
 const Navigation = () => {
   const [petTypes, setPetTypes] = useState([]);
